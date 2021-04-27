@@ -1,12 +1,13 @@
 Gui, +AlwaysOnTop -SysMenu +Owner  ; +Owner avoids a taskbar button.
 Gui, Add, Button, default, &Reroll
 Gui, Add, Button, default, &Speedrun Sword
+Gui, Add, Button, default, &Speedrun Bow
 Gui, Add, Button, default, &Serpent2
 Gui, Add, Button, default, &Serpent3
 Gui, Add, Button, default, &Eagle1
 Gui, Add, Button, default, &Eagle2
 Gui, Add, Button, default, &Eagle3
-Gui, Add, Button, default, &Speedrun Bow
+Gui, Add, Button, default, &Curse effulgence
 Gui, Add, Button, default, &No Attack
 Gui, Add, Button, default, &Dynamite
 Gui, Add, Button, default, &Throwing
@@ -27,6 +28,12 @@ ButtonSpeedrunSword:
     Filepath = \cursereroller\speedrun\reallyreallygoodsword\Profile_2.ob
     ReplaceSave(Filepath)
 return
+
+ButtonSpeedrunBow:
+    Filepath = \cursereroller\speedrun\godrange\Profile_1.ob
+    ReplaceSave(Filepath)
+return
+
 
 ButtonSerpent2:
     Filepath = \cursereroller\practice\serpent\champ2\Profile_1.ob
@@ -53,7 +60,7 @@ ButtonEagle3:
     ReplaceSave(Filepath)
 return
 
-ButtonSpeedrunBow:
+ButtonCurseEffulgence:
     Filepath = \cursereroller\speedrun\perfect effulgence\Profile_2.ob
     ReplaceSave(Filepath)
 return
