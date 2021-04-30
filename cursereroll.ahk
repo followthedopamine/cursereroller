@@ -2,6 +2,7 @@ Gui, +AlwaysOnTop -SysMenu +Owner  ; +Owner avoids a taskbar button.
 Gui, Add, Button, default, &Reroll
 Gui, Add, Button, default, &Speedrun Sword
 Gui, Add, Button, default, &Speedrun Bow
+Gui, Add, Button, default, &Doubled Heartseeker
 Gui, Add, Button, default, &Serpent2
 Gui, Add, Button, default, &Serpent3
 Gui, Add, Button, default, &Eagle1
@@ -34,6 +35,10 @@ ButtonSpeedrunBow:
     ReplaceSave(Filepath)
 return
 
+ButtonDoubledHeartseeker:
+    Filepath = \cursereroller\speedrun\doubledheartseeker\Profile_2.ob
+    ReplaceSave(Filepath)
+return
 
 ButtonSerpent2:
     Filepath = \cursereroller\practice\serpent\champ2\Profile_1.ob
@@ -96,7 +101,7 @@ ReplaceSave(Filepath) {
     WinClose, Curse of the Dead Gods
 
     FileCopy, %Saves%%Filepath%, %Saves%\Profile_1.ob, 1
-    Sleep, 1000e
+    Sleep, 1000
     Run, steam://rungameid/1123770
 }
 
@@ -117,7 +122,6 @@ Reroll() {
         PixelGetColor, color2, 885, 132
         Sleep, 100
     }
-    Sleep, 300
     Click
     Send, {Escape down}
     Sleep, 100
