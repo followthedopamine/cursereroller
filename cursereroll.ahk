@@ -36,7 +36,7 @@ ButtonSpeedrunBow:
 return
 
 ButtonDoubledHeartseeker:
-    Filepath = \cursereroller\speedrun\doubledheartseeker\Profile_2.ob
+    Filepath = \cursereroller\speedrun\doubledheartseeker\Profile_1.ob
     ReplaceSave(Filepath)
 return
 
@@ -106,7 +106,7 @@ ReplaceSave(Filepath) {
 }
 
 Reroll() {
-    Filepath = \cursereroller\speedrun\reroll\Profile_1.ob
+    Filepath = \cursereroller\speedrun\doubledheartseeker\Profile_2.ob
     ReplaceSave(Filepath)
     While(color != 0x2103B3)
     {
@@ -117,22 +117,23 @@ Reroll() {
     Click, 277, 416
     Sleep, 200
     Click, 277, 416
-    While(color2 != 0x6B1831)
-    {
-        PixelGetColor, color2, 885, 132
-        Sleep, 100
-    }
-    Click
-    Send, {Escape down}
-    Sleep, 100
-    Send, {Escape up}
-    Click, 765, 517
-    Sleep, 50
-    Click 819, 700
+    ;While(color2 != 0x6B1831)
+    ;{
+    ;    PixelGetColor, color2, 885, 132
+    ;    Sleep, 100
+    ;}
+    ;Click
+    ;Send, {Escape down}
+    ;Sleep, 100
+    ;Send, {Escape up}
+    ;Click, 765, 517
+    ;Sleep, 50
+    ;Click 819, 700
 }
 
-;#IfWinExist, Curse of the Dead Gods
-;{
-;    Numpad8::Reroll()
-;    Numpad9::FileCopy, %Path%\cursereroller\practice\serpent\champ2\Profile_1.ob, %Path%
-;}
+;TODO
+;Save files for all events
+;Save files for all bosses
+;Browse for COTDG.exe to set path (installer)
+;Auto update
+;Nice gui
