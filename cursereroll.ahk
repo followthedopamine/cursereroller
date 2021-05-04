@@ -1,25 +1,29 @@
+SetDefaultMouseSpeed, 0 ; move the mouse instantly
+
 Gui, +AlwaysOnTop -SysMenu +Owner  ; +Owner avoids a taskbar button.
+Gui, Add, Tab3,, Weapons | Bosses
+Gui, Tab, 1
 Gui, Add, Button, default, &Reroll
 Gui, Add, Button, default, &Speedrun Sword
 Gui, Add, Button, default, &Speedrun Bow
 Gui, Add, Button, default, &Doubled Heartseeker
+Gui, Add, Button, default, &Dynamite
+Gui, Add, Button, default, &Throwing
+Gui, Add, Button, default, &Curse effulgence
+Gui, Add, Button, default, &No Attack
+Gui, Tab, 2
+Gui, Add, Button, default, &Serpent1
 Gui, Add, Button, default, &Serpent2
 Gui, Add, Button, default, &Serpent3
 Gui, Add, Button, default, &Eagle1
 Gui, Add, Button, default, &Eagle2
 Gui, Add, Button, default, &Eagle3
-Gui, Add, Button, default, &Curse effulgence
-Gui, Add, Button, default, &No Attack
-Gui, Add, Button, default, &Dynamite
-Gui, Add, Button, default, &Throwing
+Gui, Add, Button, default, &Jaguar1
+Gui, Add, Button, default, &Jaguar2
+Gui, Add, Button, default, &Jaguar3
+Gui, Add, Button, default, &Final boss
 Gui, Show, NoActivate, Curse Reroller  
 return
-;Filepath = the save file
-;Screen:	-1523, 229 (less often used)
-;Window:	397, 235 (default)
-;Client:	397, 235 (recommended)
-;Color:	B30321 (Red=B3 Green=03 Blue=21)
-
 
 ButtonReroll:
     Reroll()
@@ -37,6 +41,11 @@ return
 
 ButtonDoubledHeartseeker:
     Filepath = \cursereroller\speedrun\doubledheartseeker\Profile_1.ob
+    ReplaceSave(Filepath)
+return
+
+ButtonSerpent1:
+    Filepath = \cursereroller\practice\serpent\boss\Profile_1.ob
     ReplaceSave(Filepath)
 return
 
@@ -61,6 +70,26 @@ ButtonEagle2:
 return
 
 ButtonEagle3:
+    Filepath = \cursereroller\practice\eagle\boss\Profile_1.ob
+    ReplaceSave(Filepath)
+return
+
+ButtonJaguar1:
+    Filepath = \cursereroller\practice\jaguar\champ1\Profile_1.ob
+    ReplaceSave(Filepath)
+return
+
+ButtonJaguar2:
+    Filepath = \cursereroller\practice\jaguar\champ2\Profile_1.ob
+    ReplaceSave(Filepath)
+return
+
+ButtonJaguar3:
+    Filepath = \cursereroller\practice\jaguar\boss\Profile_1.ob
+    ReplaceSave(Filepath)
+return
+
+ButtonFinalBoss:
     Filepath = \cursereroller\practice\eagle\boss\Profile_1.ob
     ReplaceSave(Filepath)
 return
@@ -114,9 +143,12 @@ Reroll() {
         Sleep, 100
     }
     Sleep, 200
+    MouseGetPos, xpos, ypos 
     Click, 277, 416
     Sleep, 200
     Click, 277, 416
+    Sleep, 50
+    MouseMove, %xpos%, %ypos%
     ;While(color2 != 0x6B1831)
     ;{
     ;    PixelGetColor, color2, 885, 132
