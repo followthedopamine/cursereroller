@@ -22,7 +22,9 @@ Gui, Add, Button, default, &Jaguar1
 Gui, Add, Button, default, &Jaguar2
 Gui, Add, Button, default, &Jaguar3
 Gui, Add, Button, default, &Final boss
-Gui, Show, NoActivate, Curse Reroller  
+Gui, Show, NoActivate, Curse Reroller
+Path = ""
+startup()
 return
 
 ButtonReroll:
@@ -123,15 +125,13 @@ return
 Numpad2::Reroll()
 
 ReplaceSave(Filepath) {
-    Path = D:\Games\SteamLibrary\steamapps\common\Curse of the Dead Gods
+    global Path
     Saves = %Path%\TempleResources\_Saves
-    SChamp2 = %Saves%\cursereroller\practice\serpent\champ2\Profile_1.ob
-    
+    MsgBox, %Saves%
     WinClose, Curse of the Dead Gods
-
     FileCopy, %Saves%%Filepath%, %Saves%\Profile_1.ob, 1
     Sleep, 1000
-    Run, steam://rungameid/1123770
+    Run, %Path%
 }
 
 Reroll() {
@@ -163,9 +163,19 @@ Reroll() {
     ;Click 819, 700
 }
 
+startup() {
+    global Path
+    IniRead, OutputVar, options.ini, settings, path
+    Path = %OutputVar%
+    if (Path = 0) {
+        FileSelectFile, CursePath,,Select your Curse of the Dead Gods.exe
+        Path = %CursePath%
+        IniWrite, %Path%, options.ini, settings, path
+    }
+}
 ;TODO
 ;Save files for all events
-;Save files for all bosses
+;Better save files for bosses
 ;Browse for COTDG.exe to set path (installer)
 ;Auto update
 ;Nice gui
