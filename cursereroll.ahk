@@ -186,12 +186,7 @@ startup() {
         IniWrite, %CursePath%, options.ini, settings, path
     }
 }
-;TODO
-;Save files for all events
-;Better save files for bosses
-;Browse for COTDG.exe to set path (installer)
-;Auto update
-;Nice gui
+
 
 changeSoundDevice(DeviceNumber) {
     ; http://www.daveamenta.com/2011-05/programmatically-or-command-line-change-the-default-sound-playback-device-in-windows-7/
@@ -247,3 +242,11 @@ changeSoundDevice(DeviceNumber) {
     ObjRelease(IPolicyConfig)
     ;MsgBox % Format("0x{:08X}", R)
 }
+
+;TODO
+;Save files for all events
+;Better save files for bosses
+;Browse for COTDG.exe to set path (installer)
+;Auto update
+;Nice gui
+;Back up profile1 save
